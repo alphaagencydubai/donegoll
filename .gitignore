@@ -1,0 +1,7 @@
+scripts/src/
+scripts/shots/
+docs/shots/*.png
+!docs/shots/.keep
+.DS_Store
+__pycache__/
+.claude/

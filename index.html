@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Done Goll — Bags, Tehran</title>
+<meta name="description" content="Done Goll — bags from Tehran. Shop the rail, join the club, collect points on every bag.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#F4F2EE">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Done Goll">
+<meta property="og:title" content="Done Goll — Bags, Tehran">
+<meta property="og:description" content="Shop the rail, join the club, collect points on every bag.">
+<meta property="og:image" content="assets/photos/s/slouch-pair-m.webp">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/caslon-text.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/app.css?v=f288cfe01c">
+<script>
+  // Claim scroll restoration before anything paints: an installed app otherwise
+  // relaunches half-scrolled. Paint the right theme on the first frame, too.
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  (function () {
+    var t = "system";
+    try { t = JSON.parse(localStorage.getItem("donegoll.v1.prefs") || "{}").theme || "system"; } catch (e) {}
+    var dark = t === "dark" || (t === "system" && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
+    document.documentElement.dataset.theme = dark ? "dark" : "light";
+    document.documentElement.dataset.js = "1";
+    // failsafe: whatever happens in the modules, the opening never outstays four seconds
+    setTimeout(function () { var b = document.getElementById("boot"); if (b) b.className += " gone"; }, 4000);
+  })();
+</script>
+<!-- modulepreload:start -->
+<link rel="modulepreload" href="js/assets.gen.js">
+<link rel="modulepreload" href="js/boot.js">
+<link rel="modulepreload" href="js/brand.js">
+<link rel="modulepreload" href="js/config.js">
+<link rel="modulepreload" href="js/data.js">
+<link rel="modulepreload" href="js/icons.js">
+<link rel="modulepreload" href="js/install.js">
+<link rel="modulepreload" href="js/motion.js">
+<link rel="modulepreload" href="js/qr.js">
+<link rel="modulepreload" href="js/rail.js">
+<link rel="modulepreload" href="js/router.js">
+<link rel="modulepreload" href="js/store.js">
+<link rel="modulepreload" href="js/tabs.js">
+<link rel="modulepreload" href="js/ui.js">
+<link rel="modulepreload" href="js/util.js">
+<link rel="modulepreload" href="js/views/bag.js">
+<link rel="modulepreload" href="js/views/checkout.js">
+<link rel="modulepreload" href="js/views/club.js">
+<link rel="modulepreload" href="js/views/home.js">
+<link rel="modulepreload" href="js/views/orders.js">
+<link rel="modulepreload" href="js/views/product.js">
+<link rel="modulepreload" href="js/views/profile.js">
+<link rel="modulepreload" href="js/views/saved.js">
+<link rel="modulepreload" href="js/views/shop.js">
+<link rel="modulepreload" href="js/views/thanks.js">
+<!-- modulepreload:end -->
+<script type="module" src="js/app.js?v=f288cfe01c"></script>
+</head>
+<body>
+
+<!-- The opening: the wordmark, the rail drawn under it. Filled by js/boot.js. -->
+<div id="boot" aria-hidden="true">
+  <div class="boot-mark" id="boot-mark"></div>
+  <div class="boot-rail"><i></i></div>
+</div>
+
+<!-- Top bar. iOS 26 grammar: glass buttons floating over the content, and a soft
+     scroll-edge blur instead of a hard bar. The title arrives once the page's own
+     large title has scrolled under it. -->
+<header id="bar" class="bar" data-mode="clear">
+  <div class="bar-edge" aria-hidden="true"></div>
+  <div class="bar-l">
+    <button class="gbtn" id="bar-back" type="button" aria-label="Back" hidden></button>
+  </div>
+  <a class="bar-c" id="bar-c" href="#/" aria-label="Done Goll home">
+    <span class="bar-logo" id="bar-logo"></span>
+    <span class="bar-title" id="bar-title"></span>
+  </a>
+  <div class="bar-r" id="bar-r"></div>
+</header>
+
+<main id="view" class="view"></main>
+
+<!-- Fixed chrome a screen asks for (the checkout dock) lives out here: inside the
+     screen, the entrance transform would make it a containing block and a backdrop
+     root, and the dock would jump and lose its glass. -->
+<div id="dock-root"></div>
+
+<!-- Four tabs on liquid glass. The lens behind the active tab slides on a spring,
+     and follows a finger dragged along the bar. -->
+<nav id="tabs" class="tabs" aria-label="Primary">
+  <span class="tabs-lens" id="tabs-lens" aria-hidden="true"></span>
+  <a class="tab" data-tab="home" href="#/"><span class="tab-ico"></span><span class="tab-l">Home</span></a>
+  <a class="tab" data-tab="shop" href="#/shop"><span class="tab-ico"></span><span class="tab-l">Shop</span></a>
+  <a class="tab" data-tab="bag" href="#/bag"><span class="tab-ico"></span><span class="tab-l">Bag</span><span class="tab-badge" id="bag-badge" aria-hidden="true"></span></a>
+  <a class="tab" data-tab="profile" href="#/profile"><span class="tab-ico"></span><span class="tab-l">Profile</span></a>
+</nav>
+
+<div id="fly-root" aria-hidden="true"></div>
+<div id="sheet-root"></div>
+<div id="toast-root" aria-live="polite" aria-atomic="true"></div>
+
+<noscript><p style="padding:24px;font:15px/1.5 system-ui">Done Goll needs JavaScript to run.</p></noscript>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Done Goll</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#F4F2EE">
+<style>html,body{margin:0;height:100%;background:#F4F2EE;color:#141312;display:grid;place-items:center;font:400 15px/1.6 -apple-system,BlinkMacSystemFont,system-ui,sans-serif}a{color:#141312}</style>
+<script>
+  // Hash routing lives at the root; anything else bounces home and keeps the path
+  // as a hash, so a shared /shop link still lands on the shop.
+  var base = location.pathname.indexOf("/donegoll") === 0 ? "/donegoll" : "";
+  var p = location.pathname.slice(base.length).replace(/\/+$/, "") || "/";
+  location.replace(base + "/#" + p);
+</script>
+<p>Taking you to <a href="./">Done Goll</a>…</p>
